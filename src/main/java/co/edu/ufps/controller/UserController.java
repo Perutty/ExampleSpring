@@ -23,6 +23,12 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
+	@GetMapping("/status")
+	public String status() {
+		return "ok";
+	}
+	
+	
 	@GetMapping
 	public List <User> getAll() {
 		return (List<User>) userRepository.findAll();
