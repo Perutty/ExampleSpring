@@ -10,7 +10,7 @@ import lombok.Data;
 
 
 @Entity
-@Table (name="users")
+@Table (name="usuario")
 @Data
 public class User {
 	
@@ -23,6 +23,11 @@ public class User {
 	private String email;
 	
 	private String pass;
+	
+	private String pais;
+	
+	private String entidad;
 
+	private String estado;
 	
 }

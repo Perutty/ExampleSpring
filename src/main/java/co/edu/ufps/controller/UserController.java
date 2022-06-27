@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.ufps.model.User;
 import co.edu.ufps.repository.UserRepository;
 
-@RestController 
-@RequestMapping("/users")
-public class UserRest {
+@RestController
+@RequestMapping("/usuario")
+public class UserController {
 	
 	@Autowired
 	UserRepository userRepository;
-	
 	
 	@GetMapping
 	public List <User> getAll() {
@@ -81,4 +80,3 @@ public class UserRest {
 		return null;
 	}
 }
-
