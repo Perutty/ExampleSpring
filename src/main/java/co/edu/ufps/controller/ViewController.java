@@ -13,7 +13,11 @@ public class ViewController {
 	@GetMapping({"/index","/"})
 	public String index(HttpServletRequest request, Model modelo) {
 		
+		String nombre = (String) modelo.getAttribute("nombre");
+		String clave = (String) modelo.getAttribute("clave");
+		
 		return "index";
 	}
+	
 
 }

@@ -49,9 +49,12 @@ public class UserController {
 	public User postObject(@RequestBody User userIn) {
 		
 		User entity = new User();
-		entity.setUsername(userIn.getUsername());
+		entity.setNombre(userIn.getNombre());
 		entity.setEmail(userIn.getEmail());
-		entity.setPass(userIn.getPass());
+		entity.setClave(userIn.getClave());
+		entity.setPais(userIn.getPais());
+		entity.setEntidad(userIn.getEntidad());
+		entity.setEstado(userIn.getEstado());
 		
 		userRepository.save(entity);
 		return entity;
@@ -64,9 +67,12 @@ public class UserController {
 		if(user.isPresent()) {
 		User u = (User) user.get();
 		User entity = u;
-		entity.setUsername(userIn.getUsername());
+		entity.setNombre(userIn.getNombre());
 		entity.setEmail(userIn.getEmail());
-		entity.setPass(userIn.getPass());
+		entity.setClave(userIn.getClave());
+		entity.setPais(userIn.getPais());
+		entity.setEntidad(userIn.getEntidad());
+		entity.setEstado(userIn.getEstado());
 		userRepository.save(entity);
 		return entity;
 		}

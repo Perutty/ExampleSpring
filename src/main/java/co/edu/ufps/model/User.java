@@ -18,11 +18,11 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	private String username;
+	private String nombre;
 	
 	private String email;
 	
-	private String pass;
+	private String clave;
 	
 	private String pais;
 	
