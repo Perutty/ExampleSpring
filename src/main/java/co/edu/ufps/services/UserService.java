@@ -5,6 +5,4 @@ import co.edu.ufps.model.User;
 
 public interface UserService extends GenericService<User, Integer>{
 
-	
-	
 }

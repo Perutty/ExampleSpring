@@ -24,7 +24,7 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 
 	@Override
 	public User select(String email, String clave) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
