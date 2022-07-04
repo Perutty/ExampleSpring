@@ -21,4 +21,19 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 		return userRepository;
 	}
 
+<<<<<<< HEAD
+=======
+
+	@Override
+	public User select(String email, String clave) {
+		return userRepository.findByEmailAndClave(email, clave);
+	}
+
+
+
+
+	
+
+
+>>>>>>> branch 'main' of https://github.com/Perutty/ExampleSpring.git
 }

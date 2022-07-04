@@ -28,7 +28,6 @@ public class UserController {
 		return "ok";
 	}
 	
-	
 	@GetMapping
 	public List <User> getAll() {
 		return (List<User>) userRepository.findAll();

@@ -27,10 +27,23 @@ public class ViewController {
 	}
 
 	@PostMapping("/login")
+<<<<<<< HEAD
 	public String loginUser(RedirectAttributes att, @RequestParam String email, @RequestParam String clave, Model model) {
+=======
+	public String loginUser(HttpServletRequest request, String email, String clave, Model model) {
+>>>>>>> branch 'main' of https://github.com/Perutty/ExampleSpring.git
 		
+<<<<<<< HEAD
 		
 		return "redirect:/";
+=======
+		User user = userService.select(email, clave);
+		if(user != null) {
+			return "menu-principal";
+		}else {
+	    request.setAttribute("loginError","Usuario o contraseña incorrecto");
+		return "mostrar";
+>>>>>>> branch 'main' of https://github.com/Perutty/ExampleSpring.git
 		}
 	
 	
