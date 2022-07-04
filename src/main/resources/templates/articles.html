@@ -64,7 +64,10 @@
             <tbody th:each="article: ${list}">
                 <td th:text="${article.titulo}"></td>
                 <td th:text="${article.autores}"></td>
-                <td></td>
+                <td> <a th:href="@{/articulo/ver/{id}(id = ${article.id})}"> Ver </a>
+                    &nbsp;&nbsp;&nbsp; <a th:href="@{/articulo/update/{id}(id = ${article.id})}"> Editar </a>
+                    &nbsp;&nbsp;&nbsp; <a th:href="@{/articulo/delete/{id}(id = ${article.id})}"> Eliminar </a>
+                </td>
             </tbody>
         </table>
     </div>

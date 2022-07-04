@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://kit.fontawesome.com/16bb53a23e.js" crossorigin="anonymous"></script>
+    <title>Editar articulo</title>
+</head>
+
+<body>
+    <header class="flex justify-around items-center">
+        <div>
+            <img th:src="@{/img/logoufps.jpg}" class="w-80">
+        </div>
+
+        <figure class="flex justify-between items-center text-center">
+            <div>
+                <a class="" href="/articulo/list">Volver</a>
+            </div>
+
+            <div class="pl-5 pt-3">
+                <a class="mx-auto flex items-center justify-center w-16 h-16 rounded-md bg-red-500" href="/logout">
+                    <i class="fa-solid text-white text-3xl fa-door-open"></i>
+                </a>
+                <p class="font-bold">Salir</p>
+            </div>
+        </figure>
+    </header>
+
+    <br>
+
+    <div class="container col-md-4">
+        <form action="#"  th:object="${verArticulo}">
+            <div class="form-group">
+                <input name="id" type="hidden" class="form-control" th:field="*{id}" /><br>
+            </div>
+            <div class="form-group">
+                <input name="titulo" type="text" class="form-control" th:field="*{titulo}" placeholder="titulo" readonly/><br>
+            </div>
+            <div class="form-group">
+                <input name="autores" type="text" class="form-control" th:field="*{autores}" placeholder="autores" readonly/> <br>
+            </div>
+            <div class="form-group">
+                <input name="citacion" type="text" class="form-control" th:field="*{citacion}" placeholder="citacion" readonly/><br>
+            </div>
+            <div class="flex justify-around">
+                <div class="form-group flex-none mr-2">
+                    <select name="pais" readonly>
+                        <option value="Col">Colombia</option>
+                    </select>
+                </div>
+                <div class="form-group flex-none">
+                    <input name="ano" type="text" class="form-control" value="2022" readonly/> <br>
+                </div>
+                <div class="form-group flex-auto ml-2">
+                    <input name="palabrasclave" type="text" class="form-control" th:field="*{palabrasclave}" placeholder="Palabras clave" readonly/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <input name="url" type="text" class="form-control" th:field="*{url}" placeholder="Url" readonly/> <br>
+            </div>
+            <div class="form-group">
+                <label for="resumen"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Resumen</label>
+                <textarea id="resumen" name="resumen" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-red-50 rounded-lg border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-red-700 dark:border-gray-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+                    th:field="*{resumen}" placeholder="Resumen" readonly></textarea>
+            </div>
+            <div class="form-group">
+                <label for="conclusiones"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Conclusiones</label>
+                <textarea id="conclusiones" name="conclusiones" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-red-50 rounded-lg border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-red-700 dark:border-gray-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+                    th:field="*{conclusiones}" placeholder="Conclusiones" readonly></textarea>
+            </div>
+            <div class="form-group">
+                <label for="notas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Notas</label>
+                <textarea id="notas" name="notas" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-red-50 rounded-lg border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-red-700 dark:border-gray-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+                    th:field="*{notas}" placeholder="Notas" readonly></textarea>
+            </div>
+            <br><br>
+        </form>
+    </div>
+</body>
+
+</html>
