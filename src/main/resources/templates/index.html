@@ -13,7 +13,7 @@
 		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
 	<br>
 	<div class="container col-md-4">
-		<form action="#" method="post" th:action="@{/}">
+		<form action="#" method="post" th:action="@{/login}">
 			<br>
 			<h3 class="form-heading">Log in</h3>
 			<div>
@@ -28,6 +28,9 @@
 				<h5 class="text-center">
 					<a href="/show">¿No tienes una cuenta? regístrate aquí</a>
 				</h5>
+				<div class="alert alert-danger" th:if="${loginError != null }">
+					<label th:text="${loginError}"></label>
+				</div>
 			</div>
 		</form>
 	</div>
