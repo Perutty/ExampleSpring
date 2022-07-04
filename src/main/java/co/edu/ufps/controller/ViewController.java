@@ -34,7 +34,6 @@ public class ViewController {
 		if(user != null) {
 			return "dashboard";
 		}else {
-			
 	    request.setAttribute("loginError","Usuario o contraseña incorrecto");
 		return "mostrar";
 		}
