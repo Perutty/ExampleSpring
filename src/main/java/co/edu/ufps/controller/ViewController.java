@@ -1,6 +1,7 @@
 package co.edu.ufps.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,16 +27,23 @@ public class ViewController {
 	}
 
 	@PostMapping("/login")
-	public String loginUser(RedirectAttributes ra , String email, String clave, Model model) {
+	public String loginUser(RedirectAttributes ra , String email, String clave, HttpServletRequest request, HttpSession session, Model model) {
 
 		User user = userService.select(email, clave);
 		if (user != null) {
-			model.addAttribute("Saludo", user.getNombre());
+			request.getSession().setAttribute("user_id", user.getId());
 			return "menu-principal";
 		} else {
 			ra.addFlashAttribute("loginError", "Usuario o contraseña incorrecto");
 			return "redirect:/";
 		}
+	}
+
+
+	@GetMapping("/logout")
+	public String cerrarSesion(HttpSession session){
+		session.invalidate();
+		return "/";
 	}
 
 	@RequestMapping("/list")
