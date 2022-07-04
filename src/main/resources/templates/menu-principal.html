@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -17,17 +17,17 @@
 
     <div class="flex justify-evenly">
         <figure class="text-center">
-            <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
+            <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="/view-articles">
                 <i class="fa-solid text-white text-6xl fa-newspaper"></i>
             </a>
-            <p>Articulos</p>
+            <p class="font-bold">Articulos</p>
         </figure>
 
         <figure class="text-center">
             <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
                 <i class="fa-solid text-white text-6xl fa-magnifying-glass"></i>
             </a>
-            <p> Proyecto </p>
+            <p class="font-bold"> Proyecto </p>
         </figure>
     </div>
 
@@ -35,7 +35,7 @@
         <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
             <i class="fa-solid text-white text-6xl fa-door-open"></i>
         </a>
-        <p>Salir</p>
+        <p class="font-bold">Salir</p>
     </figure>
 </body>
 
