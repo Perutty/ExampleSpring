@@ -3,23 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Log in</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 </head>
 <body>
-
-<img th:src="@{img/logoufps.jpg}" style="width:400px; display:flex; flex:wrap; margin-left:auto;margin-right:auto;margin-top:40px;">
-<br>
-<div class="container col-md-4">
-	<form class="form-singin" method="POST" th:action="@{/login}">
-		<br><h3 class="form-heading">Log in</h3>
-		<div>
-			<br><input name="nombre" type="text" class="form-control" placeholder="Correo" autofocus="true" required="required"/>
-			<br><input name="clave" type="text" class="form-control" placeholder="Clave" autofocus="true" required="required"/>
-			<br><button class="btn btn-lg btn-primary btn-block" type="submit" style="border-bottom-left-radius:30px; background-color:red">Ingresar</button>
-			<br><h5 class="text-center"><a href="/registration">¿No tienes una cuenta? regístrate aquí</a></h5>
-		</div>
-	</form>
-</div>
+	<img th:src="@{img/logoufps.jpg}"
+		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
+	<br>
+	<div class="container col-md-4">
+		<form action="#" method="post" th:action="@{/}">
+			<br>
+			<h3 class="form-heading">Log in</h3>
+			<div>
+				<br>
+				<input name="email" type="text" class="form-control"
+					placeholder="Correo" required="required" /> <br>
+				<input name="clave" type="text" class="form-control"
+					placeholder="Clave" required="required" /> <br>
+				<button class="btn btn-lg btn-primary btn-block" type="submit"
+					style="border-bottom-left-radius: 30px; background-color: red">Ingresar</button>
+				<br>
+				<h5 class="text-center">
+					<a href="/show">¿No tienes una cuenta? regístrate aquí</a>
+				</h5>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

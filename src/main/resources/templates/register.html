@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Log in</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+	<img th:src="@{../img/logoufps.jpg}"
+		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
+	<br>
+	<br>
+	<h3 class="text-center">Register</h3>
+	<div class="container col-md-4">
+		<form action="#" th:action="@{/save}" method="post">
+			<div class="form-group">
+					<input name="nombre" type="text" class="form-control"
+						placeholder="Nombre" required="required"/><br>
+			</div>
+			<div class="form-group">
+					<input name="email" type="text" class="form-control"
+						placeholder="Email" required="required"/> <br>
+			</div>
+			<div class="form-group">
+					<input name="clave" type="text" class="form-control"
+						placeholder="Password" required="required"/><br>
+			</div>
+			<div class="form-group">
+					<input name="pais" type="text" class="form-control"
+						placeholder="Pais" required="required"/> <br>
+			</div>
+			<div class="form-group">
+					<input name="entidad" type="text" class="form-control"
+						placeholder="Entidad" required="required"/> <br>
+			</div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+					<br><br>
+					<h5 class="text-center">
+						<a href="/">¿Ya tienes una cuenta? ingresa ahora</a>
+					</h5>
+		</form>
+	</div>
+</body>
+</html>
