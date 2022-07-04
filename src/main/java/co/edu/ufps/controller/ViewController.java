@@ -49,6 +49,7 @@ public class ViewController {
 		userService.delete(id);
 		return "redirect:/list";
 	}
+
 	
 
 }
