@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <img th:src="@{img/logoufps.jpg}"
+    <img th:src="@{../img/logoufps.jpg}"
         style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
     <br>
 
@@ -32,10 +32,10 @@
     </div>
 
     <figure class="text-center">
-        <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
+        <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="/logout">
             <i class="fa-solid text-white text-6xl fa-door-open"></i>
         </a>
-        <p>Salir</p>
+        <a class="btn btn-success" href="/logout">Salir</a>
     </figure>
 </body>
 
