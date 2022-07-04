@@ -27,12 +27,12 @@ public class ViewController {
 		return "index";
 	}
 
-	@GetMapping("/login")
-	public String loginUser(HttpServletRequest request,@PathVariable String email, @PathVariable String clave, Model model) {
+	@PostMapping("/login")
+	public String loginUser(HttpServletRequest request, String email, String clave, Model model) {
 		
 		User user = userService.select(email, clave);
 		if(user != null) {
-			return "dashboard";
+			return "prueba";
 		}else {
 	    request.setAttribute("loginError","Usuario o contraseña incorrecto");
 		return "mostrar";

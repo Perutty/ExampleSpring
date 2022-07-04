@@ -24,8 +24,13 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 
 	@Override
 	public User select(String email, String clave) {
-		
-		return null;
+		return userRepository.findByEmailAndClave(email, clave);
 	}
+
+
+
+
+	
+
 
 }
