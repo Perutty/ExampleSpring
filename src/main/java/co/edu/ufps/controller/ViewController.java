@@ -32,7 +32,7 @@ public class ViewController {
 		
 		User user = userService.select(email, clave);
 		if(user != null) {
-			return "prueba";
+			return "menu-principal";
 		}else {
 	    request.setAttribute("loginError","Usuario o contraseña incorrecto");
 		return "mostrar";

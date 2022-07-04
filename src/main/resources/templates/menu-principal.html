@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://kit.fontawesome.com/16bb53a23e.js" crossorigin="anonymous"></script>
+    <title>Menu principal</title>
+</head>
+
+<body>
+    <img th:src="@{img/logoufps.jpg}"
+        style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
+    <br>
+
+    <div class="flex justify-evenly">
+        <figure class="text-center">
+            <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
+                <i class="fa-solid text-white text-6xl fa-newspaper"></i>
+            </a>
+            <p>Articulos</p>
+        </figure>
+
+        <figure class="text-center">
+            <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
+                <i class="fa-solid text-white text-6xl fa-magnifying-glass"></i>
+            </a>
+            <p> Proyecto </p>
+        </figure>
+    </div>
+
+    <figure class="text-center">
+        <a class="mx-auto flex items-center justify-center w-32 h-32 rounded-md bg-red-500" href="#">
+            <i class="fa-solid text-white text-6xl fa-door-open"></i>
+        </a>
+        <p>Salir</p>
+    </figure>
+</body>
+
+</html>
