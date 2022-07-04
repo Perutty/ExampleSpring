@@ -35,7 +35,6 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
 		return returnList;
 	}
 	
-	
 	public abstract CrudRepository<T, ID> getDao();
 
 }
