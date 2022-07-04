@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/16bb53a23e.js" crossorigin="anonymous"></script>
     <title>Listado Articulos</title>
 </head>
@@ -13,16 +15,16 @@
 <body>
     <header class="flex justify-around items-center">
         <div>
-            <img th:src="@{img/logoufps.jpg}" class="w-80">
+            <img th:src="@{../img/logoufps.jpg}" class="w-80">
         </div>
 
         <figure class="flex justify-between items-center text-center">
             <div>
-                <a class="" href="#">Volver</a>
+                <a class="" href="/menu-principal">Volver</a>
             </div>
 
             <div class="pl-5 pt-3">
-                <a class="mx-auto flex items-center justify-center w-16 h-16 rounded-md bg-red-500" href="#">
+                <a class="mx-auto flex items-center justify-center w-16 h-16 rounded-md bg-red-500" href="/logout">
                     <i class="fa-solid text-white text-3xl fa-door-open"></i>
                 </a>
                 <p class="font-bold">Salir</p>
@@ -39,7 +41,8 @@
             <button class="px-4 mx-3 h-10 bg-red-600 hover:bg-red-900 rounded-br-lg text-slate-50">Buscar</button>
         </div>
         <div class="pr-2">
-            <a class="rounded-full bg-red-600 px-5 py-3 border border-black text-slate-50 text-3xl" href="/new-article">+</a>
+            <a class="no-underline rounded-full bg-red-600 px-5 py-3 border border-black text-slate-50 text-3xl"
+                href="/articulo/new-article">+</a>
         </div>
     </section>
 
@@ -47,21 +50,24 @@
         <h3 class="text-red-700">Relación de Articulos</h3>
     </div>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Titulo</th>
-                <th>Autores</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody th:each="article: ${list}">
-            <td th:text="${user.nombre}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.pais}"></td>
-            <td th:text="${user.entidad}"></td>
-        </tbody>
-    </table>
+
+    <h2 th:if="${list.isEmpty()}">No hay articulos</h2>
+    <div th:if="${!list.isEmpty()}">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autores</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody th:each="article: ${list}">
+                <td th:text="${article.titulo}"></td>
+                <td th:text="${article.autores}"></td>
+                <td></td>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 package co.edu.ufps.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,11 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table (name="articulo")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Articulo {
     
     @Id
@@ -19,7 +25,7 @@ public class Articulo {
 	private Integer id;
 	
 	@Column
-	private User usuario_id;
+	private Integer usuario_id;
 	
 	@Column
 	private String titulo;
@@ -34,7 +40,7 @@ public class Articulo {
 	private String citacion;
 
 	@Column
-	private User pais;
+	private String pais;
 
     @Column
 	private String resumen;
@@ -43,25 +49,25 @@ public class Articulo {
 	private String conclusiones;
 
 	@Column
-	private User vacio;
+	private String vacio;
 
     @Column
-	private User url;
+	private String url;
 
     @Column
-	private User notas;
+	private String notas;
 
     @Column
-	private String fecha_creacion;
+	private Timestamp fecha_creacion;
 
     @Column
-	private User revista;
+	private String revista;
 
     @Column
-	private User categoria;
+	private String categoria;
 
     @Column
-	private User palabrasclave;
+	private String palabrasclave;
 
-    
+
 }
