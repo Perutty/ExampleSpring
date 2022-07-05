@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import co.edu.ufps.model.Pregunta;
 import co.edu.ufps.model.Proyect;
@@ -63,13 +64,14 @@ public class PreguntaController {
 	
 	
 	@PostMapping("/save")
-	public String register(@RequestParam String pregunta, HttpServletRequest request, HttpSession session, Model model) {
+	public String register(RedirectAttributes att,@RequestParam String pregunta, HttpServletRequest request, HttpSession session, Model model) {
 		
 		int p_id = (int)request.getSession().getAttribute("pro_id");
 			Pregunta p = new Pregunta(p_id,pregunta);
 			p.setCadena(null);
 			p.setNotas(null);
 			preguntaService.save(p);
+			att.addFlashAttribute("accion", "¡Pregunta guardada con éxito!");
 		return "redirect:/pregunta/list";
 	}
 	
@@ -84,8 +86,9 @@ public class PreguntaController {
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") Integer id, Model model) {
+	public String delete(RedirectAttributes att, @PathVariable("id") Integer id, Model model) {
 		preguntaService.delete(id);
+		att.addFlashAttribute("accion", "¡Pregunta eliminada con éxito!");
 		return "redirect:/pregunta/list";
 	}
 }

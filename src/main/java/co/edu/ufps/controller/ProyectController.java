@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import co.edu.ufps.model.Proyect;
 import co.edu.ufps.services.ProyectService;
@@ -54,9 +55,10 @@ public class ProyectController {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String editProyect(@PathVariable("id") Integer id, Proyect proyecto, Model model) {
+	public String editProyect(RedirectAttributes att,@PathVariable("id") Integer id, Proyect proyecto, Model model) {
 		if(id!= null) {
 			model.addAttribute("proyect", proyectService.get(id));
+			att.addFlashAttribute("accion", "¡Proyecto editado con éxito!");
 		}else
 		{
 			model.addAttribute("proyect", new Proyect());
@@ -78,20 +80,21 @@ public class ProyectController {
 	}
 
 	@PostMapping("/save")
-	public String register(Proyect proyecto, HttpServletRequest request, HttpSession session, Model model) {
+	public String register(RedirectAttributes att,Proyect proyecto, HttpServletRequest request, HttpSession session, Model model) {
 		Date dat = new Date();
 		java.sql.Date sqlDate = new java.sql.Date(dat.getTime());
 		int u_id = (int) request.getSession().getAttribute("user_id");
 		proyecto.setUsuario_id(u_id);
 		proyecto.setFechacreacion(sqlDate);
 		proyectService.save(proyecto);
-		
+		att.addFlashAttribute("accion", "¡Proyecto guardado con éxito!");
 		return "redirect:/proyect/list";
 	}
 
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") Integer id, Model model) {
+	public String delete(RedirectAttributes att,@PathVariable("id") Integer id, Model model) {
 		proyectService.delete(id);
+		att.addFlashAttribute("accion", "¡Proyecto eliminado con éxito!");
 		return "redirect:/proyect/list";
 	}
 

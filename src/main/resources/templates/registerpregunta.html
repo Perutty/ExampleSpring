@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<script src="https://kit.fontawesome.com/16bb53a23e.js"
+	crossorigin="anonymous"></script>
 <title>Log in</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -9,6 +11,13 @@
 	crossorigin="anonymous">
 </head>
 <body>
+	<br>
+	<br>
+	<div class="container">
+		<a th:href="@{/user/logout}"><i
+			class="fa-solid fa-arrow-right-from-bracket"
+			style="font-size: 20px; margin-right: 10px"></i></a> <label>Salir</label>
+	</div>
 	<img th:src="@{../img/logoufps.jpg}"
 		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
 	<br>
