@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Log in</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+	<img th:src="@{/img/logoufps.jpg}"
+		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
+	<br>
+	<br>
+	<h3 class="text-center">Editar Pregunta</h3>
+	<br>
+	<br>
+	<div class="container col-md-8">
+		<form action="#" th:action="@{/pregunta/save}" method="post"
+			th:object="${pregunta}">
+			<fieldset class="form-group">
+				<input type="hidden" th:field="*{id}" name="id" /><br>
+			</fieldset>
+			<fieldset class="form-group">
+				<input name="pregunta" type="text" class="form-control"
+					placeholder="Pregunta" required="required" th:field="*{pregunta}" /><br>
+			</fieldset>
+			<fieldset class="form-group">
+				<input name="cadena" type="text" class="form-control"
+					placeholder="Cadena" required="required" th:field="*{cadena}" /><br>
+			</fieldset>
+			<fieldset class="form-group">
+				<input name="notas" type="text" class="form-control"
+					placeholder="Notas" required="required" th:field="*{notas}" /><br>
+			</fieldset>
+			<button class="btn btn-dark" type="submit">Guardar</button>
+			<a th:href="@{/pregunta/list}" class="btn btn-dark">Cancelar</a> <br>
+			<br>
+		</form>
+	</div>
+</body>
+</html>

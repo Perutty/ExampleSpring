@@ -12,8 +12,6 @@ public interface GenericService<T, ID extends Serializable> {
 	T get (ID id);
 	
 	List<T> getAll();
-	
-	T select(String email, String clave);
 }
 
 

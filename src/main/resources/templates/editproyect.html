@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Log in</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+	<img th:src="@{/img/logoufps.jpg}"
+		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
+	<br>
+	<br>
+	<h3 class="text-center">Editar Proyecto</h3>
+	<br>
+	<br>
+	<div class="container col-md-4">
+		<form action="#" th:action="@{/proyect/save}" method="post"
+			th:object="${proyect}">
+			<fieldset class="form-group">
+				<input type="hidden" th:field="*{id}" name="id"/><br>
+			</fieldset>
+			<fieldset class="form-group">
+				<input name="titulo" type="text" class="form-control"
+					placeholder="Titulo" required="required" th:field="*{titulo}"/><br>
+			</fieldset>
+			<fieldset class="form-group">
+				<input name="objetivo" type="text" class="form-control"
+					placeholder="Objetivos" required="required" th:field="*{objetivo}"/>
+				<br>
+			</fieldset>
+			<fieldset class="form-group">
+				<input name="notas" type="text" class="form-control"
+					placeholder="Notas" required="required" th:field="*{notas}"/> <br>
+			</fieldset>
+			<fieldset class="form-group">
+				<label>Fecha inicio: </label> <input name="fechainicio" type="date"
+					class="form-control" required="required" th:field="*{fechainicio}"/><br>
+			</fieldset>
+			<fieldset class="form-group">
+				<label>Fecha fin: </label> <input name="fechafin" type="date"
+					class="form-control" required="required" th:field="*{fechafin}"/><br>
+			</fieldset>
+			<fieldset class="form-group  d-flex py-2">
+				<input name="estado" type="radio" class="form-control" value="1"
+					style="width: 25px; margin:auto; padding:auto;" required="required"/>Activo <input
+					name="estado" type="radio" class="form-control" value="2"
+					style="width: 25px; margin:auto; padding:auto;" required="required"/>Inactivo
+			</fieldset>
+			<button class="btn btn-success" type="submit">Guardar</button>
+			<br> <br>
+		</form>
+	</div>
+</body>
+</html>

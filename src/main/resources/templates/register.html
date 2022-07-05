@@ -15,7 +15,7 @@
 	<br>
 	<h3 class="text-center">Register</h3>
 	<div class="container col-md-4">
-		<form action="#" th:action="@{/save}" method="post">
+		<form action="#" th:action="@{/user/save}" method="post">
 			<div class="form-group">
 					<input name="nombre" type="text" class="form-control"
 						placeholder="Nombre" required="required"/><br>
@@ -39,7 +39,7 @@
 					<button class="btn btn-success" type="submit">Guardar</button>
 					<br><br>
 					<h5 class="text-center">
-						<a href="/">¿Ya tienes una cuenta? ingresa ahora</a>
+						<a href="/user/">¿Ya tienes una cuenta? ingresa ahora</a>
 					</h5>
 		</form>
 	</div>

@@ -18,6 +18,7 @@ import co.edu.ufps.services.UserService;
 
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	
     @Autowired
@@ -49,18 +50,12 @@ public class UserController {
 			return "redirect:/";
 	}
 	
-	@RequestMapping("/list")
-	public String listUsers(Model model) {
-		model.addAttribute("list", userService.getAll());
-		return "mostrar";
-	}
-	
 	@GetMapping("/show")
 	public String showNewForm(Model model) {
 		return "register";
 	}
 	
-	@PostMapping("/save/{id}")
+	@PostMapping("/save")
 	public String register(User user, Model model) {
 		userService.save(user);
 		return "redirect:/list";

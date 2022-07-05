@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://kit.fontawesome.com/16bb53a23e.js"
+	crossorigin="anonymous"></script>
+<title>Listado de proyectos</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<br> <br> <a th:href="@{/user/logout}"><i
+			class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px"></i></a>
+		<label>Salir</label>
+		<h4 th:if="${listproyect.isEmpty()}">No hay proyectos</h4>
+		<br> <br> <a th:href="@{/proyect/show}" style="float: right"><i
+			class="fa-solid fa-circle-plus" style="font-size: 30px"></i></a>
+		<div th:if="${!listproyect.isEmpty()}">
+			<br>
+			<div>
+				<h4 class="text-center">Relacion de proyectos</h4>
+			</div>
+			<br> <br>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Titulo</th>
+						<th>Año</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody th:each="proyect: ${listproyect}">
+					<td th:text="${proyect.titulo}"></td>
+					<td th:text="${proyect.fechacreacion}"></td>
+					<td><a
+						th:href="@{/proyect/showproyect/{id}(id=${proyect.id})}"> <i
+							class="fa-solid fa-eye"
+							style="margin-right: 15px; font-size: 20px"></i></a> <a
+						th:href="@{/proyect/edit/{id}(id=${proyect.id})}"> <i
+							class="fa-solid fa-pencil"
+							style="margin-right: 15px; font-size: 20px"></i></a> <a
+						th:href="@{/pregunta/sesion/{id}(id=${proyect.id})}"> <i
+							class="fa-solid fa-circle-question"
+							style="margin-right: 15px; font-size: 20px"></i></a> <a
+						th:href="@{/proyect/delete/{id}(id=${proyect.id})}"
+						style="margin-right: 15px;font-size: 20px"><i class="fa-solid fa-trash-can"></i></a>
+						<a
+						th:href="@{/proyect/export/all}"><i
+							class="fa-solid fa-file-excel"
+							style="margin-right: 15px; font-size: 20px"></i></a></td>
+					<fieldset class="form-group">
+						<input type="hidden" th:text="${proyect.id}" name="id" /><br>
+					</fieldset>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

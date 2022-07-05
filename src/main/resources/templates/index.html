@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <title>Log in</title>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 </head>
 <body>
-	<img th:src="@{img/logoufps.jpg}"
+	<img th:src="@{../img/logoufps.jpg}"
 		style="width: 400px; display: flex; flex: wrap; margin-left: auto; margin-right: auto; margin-top: 40px;">
 	<br>
 	<div class="container col-md-4">
-		<form action="#" method="post" th:action="@{/login}">
+		<form action="#" method="post" th:action="@{/user/login}">
 
 			<br>
 			<h3 class="form-heading">Log in</h3>
@@ -27,10 +27,10 @@
 					style="border-bottom-left-radius: 30px; background-color: red">Ingresar</button>
 				<br>
 				<h5 class="text-center">
-					<a href="/show">¿No tienes una cuenta? regístrate aquí</a>
+					<a href="/user/show">¿No tienes una cuenta? regístrate aquí</a>
 				</h5>
 				<div class="alert alert-danger" th:if="${loginError != null }">
-					<label th:text="${loginError}"></label>
+					<label th:text="${/user/loginError}"></label>
 				</div>
 			</div>
 		</form>
