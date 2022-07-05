@@ -16,7 +16,7 @@
 		<br> <a th:href="@{/user/logout}"><i
 			class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px"></i></a>
 		<label>Salir</label><br><br>
-		<a th:href="@{/proyect/list}"><i class="fa-solid fa-arrow-left-long" style="font-size:20px;margin-right:10px"></i></a>
+		<a th:href="@{/pregunta/list}"><i class="fa-solid fa-arrow-left-long" style="font-size:20px;margin-right:10px"></i></a>
 		<label>Volver</label>
 			<br>
 			<br>
@@ -24,23 +24,15 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Titulo</th>
-						<th>Objetivo</th>
+						<th>Pregunta</th>
+						<th>Cadena</th>
 						<th>Notas</th>
-						<th>Fecha inicio</th>
-						<th>Fecha fin</th>
-						<th>Estado</th>
-						<th>Fecha creación</th>
 					</tr>
 				</thead>
-				<tbody th:each="proyect: ${viewproyect}">
-					<td th:text="${proyect.titulo}"></td>
-					<td th:text="${proyect.objetivo}"></td>
-					<td th:text="${proyect.notas}"></td>
-					<td th:text="${proyect.fechainicio}"></td>
-					<td th:text="${proyect.fechafin}"></td>
-					<td th:text="${proyect.estado}"></td>
-					<td th:text="${proyect.fechacreacion}"></td>
+				<tbody th:each="pregunta: ${viewpregunta}">
+					<td th:text="${pregunta.pregunta}"></td>
+					<td th:text="${pregunta.cadena}"></td>
+					<td th:text="${pregunta.notas}"></td>
 				</tbody>
 			</table>
 		</div>

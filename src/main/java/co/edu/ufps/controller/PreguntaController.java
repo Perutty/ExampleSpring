@@ -53,6 +53,14 @@ public class PreguntaController {
 		return "registerpregunta";
 	}
 	
+	@GetMapping("/showpregunta/{id}")
+	public String showPregunta(@PathVariable("id") Integer id, HttpServletRequest request, HttpSession session, Model model) {
+		if(id!=null) {
+			model.addAttribute("viewpregunta", preguntaService.get(id));
+		}
+		return "verpregunta";
+	}
+	
 	
 	@PostMapping("/save")
 	public String register(@RequestParam String pregunta, HttpServletRequest request, HttpSession session, Model model) {

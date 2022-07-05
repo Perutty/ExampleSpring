@@ -44,6 +44,11 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping("/menu")
+	public String menu(Model model) {
+		return "menu-principal";
+	}
+	
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpSession session,  Model model) {
 			request.getSession().invalidate();
