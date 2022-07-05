@@ -2,6 +2,7 @@ package co.edu.ufps.service.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class ProyectServiceImpl extends GenericServiceImpl<Proyect, Integer> imp
 		return proyectRepository.findByTitulo(titulo);
 	}
 	
-	public ByteArrayInputStream exportAllData() throws Exception {
+	public ByteArrayInputStream exportAllData(int id) throws Exception {
 		String [] columns = {"Id", "Titulo", "Objetivo", "Notas", "Fecha Inicio", "Fecha Fin", "Estado", "Fecha Creacion"};
 		Workbook workbook = new HSSFWorkbook();
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -46,20 +47,23 @@ public class ProyectServiceImpl extends GenericServiceImpl<Proyect, Integer> imp
 			cell.setCellValue(columns[i]);
 		}
 		
-		List<Proyect> proyects = this.getAll();
+	    Proyect proyect = this.get(id);
 		int initRow = 1;
-		for(Proyect proyect : proyects) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			String fechaini = sdf.format(proyect.getFechainicio());
+			String fechafin = sdf.format(proyect.getFechafin());
+			String fechacrea = sdf.format(proyect.getFechacreacion());
 			row = sheet.createRow(initRow);
 			row.createCell(0).setCellValue(proyect.getId());
 			row.createCell(1).setCellValue(proyect.getTitulo());
 			row.createCell(2).setCellValue(proyect.getObjetivo());
 			row.createCell(3).setCellValue(proyect.getNotas());
-			row.createCell(4).setCellValue(proyect.getFechainicio());
-			row.createCell(5).setCellValue(proyect.getFechafin());
+			row.createCell(4).setCellValue(fechaini);
+			row.createCell(5).setCellValue(fechafin);
 			row.createCell(6).setCellValue(proyect.getEstado());
-			row.createCell(7).setCellValue(proyect.getFechacreacion());
+			row.createCell(7).setCellValue(fechacrea);
 			initRow++;
-		}
+		
 	
 		workbook.write(stream);
 		workbook.close();

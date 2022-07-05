@@ -1,6 +1,7 @@
 package co.edu.ufps.controller;
 
 import java.io.ByteArrayInputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,9 +45,9 @@ public class ProyectController {
 		return "listproyect";
 	}
 	
-	@GetMapping("/export/all")
-	public ResponseEntity<InputStreamResource> exportAllData() throws Exception{
-		ByteArrayInputStream stream = proyectService.exportAllData();
+	@GetMapping("/export/all/{id}")
+	public ResponseEntity<InputStreamResource> exportAllData(@PathVariable("id")Integer id) throws Exception{
+		ByteArrayInputStream stream = proyectService.exportAllData(id);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Disposition", "attachment; filename=proyectos.xls");
