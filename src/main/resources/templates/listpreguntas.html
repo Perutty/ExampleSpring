@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<script src="https://kit.fontawesome.com/16bb53a23e.js" crossorigin="anonymous"></script>
+	<title>Listado de preguntas</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+		<br><br>
+		<div class="alert alert-success" th:if="${accion != null }">
+			<label th:text="${accion}"></label>
+		</div>
+
+		<div class="flex justify-content-between">
+			<span><a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"
+				style="font-size: 20px; margin-right: 10px"></i></a> <label>Salir</label><br></span>
+			<span><a th:href="@{/proyect/list}"><i class="fa-solid fa-arrow-left-long"
+				style="font-size: 20px; margin-right: 10px"></i></a> <label>Volver</label></span>
+		</div>
+
+		<h4 th:if="${preguntas.isEmpty()}">No hay preguntas</h4>
+		<br> <br> <a th:href="@{/pregunta/show}" style="float: right"><i class="fa-solid fa-circle-plus"
+				style="font-size: 30px"></i></a>
+		<div th:if="${!preguntas.isEmpty()}">
+			<br>
+			<div>
+				<h4 class="text-center">Preguntas</h4>
+			</div>
+			<br> <br>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Preguntas</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody th:each="pregunta: ${preguntas}">
+					<td th:text="${pregunta.pregunta}"></td>
+					<td><a th:href="@{/pregunta/showpregunta/{id}(id=${pregunta.id})}"> <i class="fa-solid fa-eye"
+								style="margin-right: 15px; font-size: 20px" title="Ver"></i>
+						</a> <a th:href="@{/pregunta/edit/{id}(id=${pregunta.id})}"> <i class="fa-solid fa-pencil"
+								style="margin-right: 15px; font-size: 20px" title="Editar"></i></a> <a
+							th:href="@{/articulo/list/{id}(id=${pregunta.id})}"> <i class="fa-solid fa-newspaper"
+								style="margin-right: 15px; font-size: 20px" title="Artículos"></i></a>
+						<a th:href="@{/pregunta/delete/{id}(id=${pregunta.id})}" style="font-size: 20px"> <i
+								class="fa-solid fa-trash-can" title="Borrar"></i></a>
+					</td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
